@@ -37,6 +37,7 @@
 
     ////////////////////////////////////////////////////////////////////////
     // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
+    createCollectable(type, x, y, gravity, bounce)
 
     // example:
     createCollectable(type.steve, 200, 170, 6, 0.7);
