@@ -1,3 +1,4 @@
+
 (function (window) {
   "use strict";
   window.opspark = window.opspark || {};
@@ -28,8 +29,14 @@
 
     ////////////////////////////////////////////////////////////////////////
     // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
-    createPlatform(900, 700, scale20, scale20);
-    /*
+    createPlatform(600, 450);          
+    createPlatform(400, 150);
+    createPlatform(400, 350);
+    createPlatform(200, 300);
+    createPlatform(100, 200);
+          
+    
+     /*
      * ground : here, we create a floor. Given the width of of the platform
      * asset, giving it a scaleX and scaleY of 2 will stretch it across the
      * bottom of the game.
@@ -37,7 +44,7 @@
     createPlatform(0, game.world.height - 32, 3, 2); // DO NOT DELETE
 
     // example:
-    createPlatform(400, 250);
+    createPlatform(400, 570);
     createPlatform(170, 460, 0.5);
 
     // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////

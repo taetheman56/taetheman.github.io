@@ -1,5 +1,5 @@
 (function (window) {
-  "use strict";
+  'use strict';
   window.opspark = window.opspark || {};
   window.opspark.collectable = window.opspark.collectable || {};
   let cannon = window.opspark.cannon;
@@ -25,7 +25,9 @@
     let createCannon = cannon.create;
     ////////////////////////////////////////////////////////////////////////
     // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
-    createCannon(type, position, delay)
+    createCannon("top", 257);
+    createCannon("left", 367, 400);
+    createCannon("bottom", 227, 500);
     // example:
     createCannon("top", 450);
 

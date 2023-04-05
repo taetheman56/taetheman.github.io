@@ -22,8 +22,6 @@
    * Use the createCollectable() Function to create collectables for the level.
    * See the type Object, above, for the types of collectables and their point values.
    *
-   * createCollectable() takes these arguments:
-   *
    *      createCollectable(type, x, y, gravity, bounce);
    *
    *      type: The type of the collectable, use the type Object above.
@@ -37,13 +35,14 @@
 
     ////////////////////////////////////////////////////////////////////////
     // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
-    createCollectable(type, x, y, gravity, bounce)
-
+    createCollectable(type.steve, 450, 550, 6, 0.7);
+    createCollectable(type.kennedi, 150, 450, 9);
+    createCollectable(type.grace, 600, 100);
     // example:
     createCollectable(type.steve, 200, 170, 6, 0.7);
 
     // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
-  }
+  };
   collectable.init = init;
 })(window);
