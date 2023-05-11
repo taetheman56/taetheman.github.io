@@ -65,7 +65,7 @@
 			var positionX = 0;
 			var speed = 10;
 			var points = 0;
-			var boardWidth = 1200;
+			
 
 			
 			/* 
@@ -73,7 +73,7 @@
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
-			function update( ) {
+			function update() {
 				// your code will increase positionX by 10 here
 				positionX = positionX + speed;
 				moveBoxTo(positionX);
@@ -99,7 +99,7 @@
 				if ((speed)=> 0) {
 					speed = speed +3;
 				}
-				if ((speed)<= 0) {
+				if (speed <= 0) {
                 	speed = speed -3;
 				}
 				
