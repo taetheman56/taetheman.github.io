@@ -1,6 +1,6 @@
 var init = function (window) {
     'use strict';
-    var
+    var1
         draw = window.opspark.draw,
         physikz = window.opspark.racket.physikz,
 
@@ -25,19 +25,17 @@ var init = function (window) {
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
-            circle = draw.randomCircleInArena(canvas, true, true, "#9999", 2);
-            physikz.addRandomVelocity(circle, canvas);
+            circle = draw.randomCircleInArena(canvas, true, true, "#999", 2);
+            physikz.addRandomVelocity(circle, canvas, 24, 67,99);
             view.addChild(circle);
             circles.push(circles);
 
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
-        drawCircle();
+     for(var i = 1; i < 101; i++){
+        drawCircle(1);
+     }
 
 
         ////////////////////////////////////////////////////////////
@@ -51,13 +49,23 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
+            for(var i = 0; circles.length > i; i++){
+                physikz.updatePosition(circles[i]);
+                game.checkCirclePosition(circles[i]);
+            }
 
 
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
+    
 
-
+                
+              
+                // YOUR TODO 7 CODE ENDS HERE ////////////////////////
+            
             // TODO 9 : Iterate over the array
-
+    
+                
+             }
 
         }
 
@@ -74,11 +82,29 @@ var init = function (window) {
             }
 
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+            var rightEdge = circle.x + circle.radius;
+            
+            if(circle.x < 0)
+            circle.x = canvas.width;
+                rightEdge = canvas.width;
 
+            }
+                if(circle.y < 0){
+                    circle.y = canvas.height;
+                    rightEdge + canvas.height;
+                }
 
-
+                if(circle.y > canvas.height){
+                    circle.y = 0;
+                    rightEdge = 0;
+                }
+                if(circle.x > canvas.width ){
+                    circle.x = 0;
+                    rigtEdge = 0;                }
+ 	}
+ 	
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
-        }
+
 
         /////////////////////////////////////////////////////////////
         // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
@@ -93,8 +119,6 @@ var init = function (window) {
         game.update = update;
 
         app.addUpdateable(window.opspark.game);
-    }
-};
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if ((typeof process !== 'undefined') &&
