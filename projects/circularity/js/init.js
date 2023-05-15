@@ -1,6 +1,6 @@
 var init = function (window) {
     'use strict';
-    var1
+    var
         draw = window.opspark.draw,
         physikz = window.opspark.racket.physikz,
 
@@ -24,18 +24,32 @@ var init = function (window) {
         var circles = [];
 
         // TODO 2 : Create a function that draws a circle 
+
+        // Code to draw a circle
+
+
         function drawCircle() {
-            circle = draw.randomCircleInArena(canvas, true, true, "#999", 2);
-                physikz.addRandomVelocity(circle, canvas, 24, 67,99);
-                    view.addChild(circle);
-                        circles.push(circles);
+            circle = draw.randomCircleInArea(canvas, true, true, '#999', 2);
+            physikz.addRandomVelocity(circle, canvas, 35, 40);
+            view.addChild(circle);
+            circles.push(circle);
 
         }
 
+
+
+
         // TODO 3 / 7 : Call the drawCircle() function 
-     for(var i = 1; i < 101; i++){
-        drawCircle(i);
-     }
+
+
+
+        var counter = 0;
+        while (counter < 100) {
+            drawCircle();
+            counter++;
+        }
+
+
 
 
         ////////////////////////////////////////////////////////////
@@ -49,23 +63,27 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-            for(var i = 0; circles.length > i; i++){
-                physikz.updatePosition(circles[i]);
-                game.checkCirclePosition(circles[i]);
+            // physikz.updatePosition(circles[1]);
+            // physikz.updatePosition(circles[2]);
+            // physikz.updatePosition(circles[3]);
+            // physikz.updatePosition(circles[4]);
+            // physikz.updatePosition(circles[5]);
+
+            for (var i = 0; i < circles.length; i++) {
+                var eachCircle = circles[i];
+
+                physikz.updatePosition(eachCircle);
+                game.checkCirclePosition(eachCircle);
             }
 
-
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-    
-
-                
-              
-                // YOUR TODO 7 CODE ENDS HERE ////////////////////////
-            
+            //game.checkCirclePosition(circles[1]);
+            //game.checkCirclePosition(circles[2]);
+            // game.checkCirclePosition(circles[3]);
+            // game.checkCirclePosition(circles[4]);
+            // game.checkCirclePosition(circles[5]);
             // TODO 9 : Iterate over the array
-    
-                
-             }
+
 
         }
 
@@ -75,35 +93,26 @@ var init = function (window) {
         it to the opposite side of the screen.
         */
         game.checkCirclePosition = function (circle) {
-
-            // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-           
+            //console.log({circle})
+            // if the circle has gone past the RIGHT side of the screen then assign it to be on the LEFT
+            if (circle.x > canvas.width) {
+                circle.x = 0;
+            }
 
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            var rightEdge = circle.x + circle.radius;
-            
-                if(circle.x < 0){
-                   circle.x = canvas.width;
-                   rightEdge = canvas.width;
+            // if the circle has gone past the LEFT side of the screen then assign it to be on the RIGHT
+            if (circle.x < 0) {
+                circle.x = canvas.width;
+            }
+            if (circle.y > canvas.height) {
+                circle.y = 0;
 
             }
-                if(circle.y < 0){
-                     circle.y = canvas.height;
-                     rightEdge = canvas.height;
-                }
-
-                if(circle.y > canvas.height){
-                     circle.y = 0;
-                     rightEdge = 0;
-                }
-                if(circle.x > canvas.width ){
-                     circle.x = 0;
-                     rigtEdge = 0;                
-                }
- 	}
- 	
+            if (circle.y < 0) {
+                circle.y = canvas.height;
+            }
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
-
+        }
 
         /////////////////////////////////////////////////////////////
         // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
@@ -113,16 +122,17 @@ var init = function (window) {
         app.addUpdateable(fps);
 
         game.circle = circle;
-        game.circles = circles;
         game.drawCircle = drawCircle;
+        game.circles = circles;
         game.update = update;
 
         app.addUpdateable(window.opspark.game);
+    }
+};
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if ((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports = init;
-}
 }
