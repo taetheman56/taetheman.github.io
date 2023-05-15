@@ -26,15 +26,15 @@ var init = function (window) {
         // TODO 2 : Create a function that draws a circle 
         function drawCircle() {
             circle = draw.randomCircleInArena(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 24, 67,99);
-            view.addChild(circle);
-            circles.push(circles);
+                physikz.addRandomVelocity(circle, canvas, 24, 67,99);
+                    view.addChild(circle);
+                        circles.push(circles);
 
         }
 
         // TODO 3 / 7 : Call the drawCircle() function 
      for(var i = 1; i < 101; i++){
-        drawCircle(1);
+        drawCircle(i);
      }
 
 
@@ -77,30 +77,29 @@ var init = function (window) {
         game.checkCirclePosition = function (circle) {
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if (circle.x > canvas.width) {
-                circle.x = 0;
-            }
+           
 
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
             var rightEdge = circle.x + circle.radius;
             
-            if(circle.x < 0)
-            circle.x = canvas.width;
-                rightEdge = canvas.width;
+                if(circle.x < 0){
+                   circle.x = canvas.width;
+                   rightEdge = canvas.width;
 
             }
                 if(circle.y < 0){
-                    circle.y = canvas.height;
-                    rightEdge + canvas.height;
+                     circle.y = canvas.height;
+                     rightEdge = canvas.height;
                 }
 
                 if(circle.y > canvas.height){
-                    circle.y = 0;
-                    rightEdge = 0;
+                     circle.y = 0;
+                     rightEdge = 0;
                 }
                 if(circle.x > canvas.width ){
-                    circle.x = 0;
-                    rigtEdge = 0;                }
+                     circle.x = 0;
+                     rigtEdge = 0;                
+                }
  	}
  	
             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
@@ -125,4 +124,5 @@ if ((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
     // here, export any references you need for tests //
     module.exports = init;
+}
 }
